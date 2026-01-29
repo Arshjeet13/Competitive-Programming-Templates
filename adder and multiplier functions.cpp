@@ -9,6 +9,11 @@ using namespace __gnu_pbds;
 #define fast() ios::sync_with_stdio(false); cin.tie(NULL)
 typedef tree<int, null_type, less_equal<int>, rb_tree_tag, tree_order_statistics_node_update> indexed_set;
 
+/*
+This program can multiply 1 large number, beyond the limits of long long data type, with a number withing C++'s
+long long data type range by converting the first one to a string and performing multiplication digit by digit,
+similar to how we do it manually on paper.
+*/
 string mult(string a, int num){
 
     string output = "";
@@ -37,6 +42,12 @@ string mult(string a, int num){
     return output;
 
 }
+
+/*
+This program can add 2 large numbers, beyond the limits of long long data type, 
+by converting them to strings and performing addition digit by digit,
+similar to how we do it manually on paper.
+*/
 
 string adder(string a, string b){
 
@@ -81,6 +92,8 @@ signed main(){
 
         string ans = "1";
 
+        // EXAMPLE : Calculating 100! and sum of its digits
+
         for(int i=2; i<=100; ++i){
             int dig1 = (i-i%100)/100;
             int dig2 = (i%100)/10;
@@ -89,12 +102,8 @@ signed main(){
             string o1 = mult(ans, dig1);
             string o2 = mult(ans, dig2);
             string o3 = mult(ans, dig3);
-
-            //cout<<o1<<" "<<o2<<" "<<o3<<"\n";
-
             o1 += "00";
             o2 += '0';
-
             ans = adder(o2, o1);
             ans = adder(ans, o3);           
         }
