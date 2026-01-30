@@ -1,18 +1,7 @@
-#include <bits/stdc++.h>
-#include<ext/pb_ds/assoc_container.hpp>
-#include<ext/pb_ds/tree_policy.hpp>
-using namespace std;
-using namespace __gnu_pbds;
-#define int long long
-#define pb push_back
-#define all(a) (a).begin(),(a).end()
-#define fast() ios::sync_with_stdio(false); cin.tie(NULL)
-typedef tree<int, null_type, less_equal<int>, rb_tree_tag, tree_order_statistics_node_update> indexed_set;
-
 /*
-This program can multiply 1 large number, beyond the limits of long long data type, with a number withing C++'s
-long long data type range by converting the first one to a string and performing multiplication digit by digit,
-similar to how we do it manually on paper.
+This program can multiply 1 large number, beyond the limits of long long data type, 
+with a 1 digit number, by converting the first one to a string and performing 
+multiplication digit by digit, similar to how we do it manually on paper.
 */
 string mult(string a, int num){
 
@@ -81,37 +70,4 @@ string adder(string a, string b){
 
     reverse(all(output));
     return output;
-}
-
-signed main(){
-    fast();
-
-    int tc = 1;
-    //int tc; cin>>tc;
-    while(tc--){
-
-        string ans = "1";
-
-        // EXAMPLE : Calculating 100! and sum of its digits
-
-        for(int i=2; i<=100; ++i){
-            int dig1 = (i-i%100)/100;
-            int dig2 = (i%100)/10;
-            int dig3 = i%10;
-
-            string o1 = mult(ans, dig1);
-            string o2 = mult(ans, dig2);
-            string o3 = mult(ans, dig3);
-            o1 += "00";
-            o2 += '0';
-            ans = adder(o2, o1);
-            ans = adder(ans, o3);           
-        }
-
-        int output = 0;
-        for(auto c : ans) output += (c - '0');
-
-        cout<<output;    
-
-    }
 }

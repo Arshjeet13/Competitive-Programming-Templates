@@ -9,7 +9,6 @@ using namespace __gnu_pbds;
 #define fast() ios::sync_with_stdio(false); cin.tie(NULL)
 typedef tree<int, null_type, less_equal<int>, rb_tree_tag, tree_order_statistics_node_update> indexed_set;
 
-
 signed main()
     fast();
 
