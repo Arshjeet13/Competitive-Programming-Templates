@@ -1,4 +1,4 @@
-int N = 2e5+3;
+const int N = 2e5+3;
 vector<int> g[N];
 int vis[N];
 
@@ -12,5 +12,5 @@ void dfs(int v){
 
     }
 
-    
+
 }
