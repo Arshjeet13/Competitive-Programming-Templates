@@ -2,10 +2,11 @@
 using namespace std;
 
 // This algorithm aims to find 
-// an integer pair {x,y} which is a solution to ax + by = c
-// A solution exists iff gcd(a,b) | c
-// This makes use of the intermediate values created during 
-// the computation of the euclidean algorithm 
+// an integer pair {x,y} which is a solution to ax + by = g
+// This makes use of the intermediate values created during the computation of the euclidean algorithm
+// This can be generablized to find {x,y} for ax + by = c
+// Note that a solution exists iff  gcd(a,b) | c
+// Moreover if there exists a solution, then there exist infinitely many solutions
 
 vector<int> extended_euclidean(int a, int b){
 
