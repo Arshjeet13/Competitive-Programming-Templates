@@ -2,14 +2,23 @@ int INF = 1e15+3;
 vector<vector<int>> edges;
 
 for(int i=0; i<n-1; ++i){
+    bool changed = false;
+
     for(auto edge : edges){
         int u = edge[0];
         int v = edge[1];
         int w = edge[2];
 
         if(dist[u] != INF){
-            dist[v] = min(dist[v], dist[u] + w);
+            if(dist[v] > dist[u] + w){
+                dist[v] = dist[u] + w;
+                changed = true;
+            }           
         }
+    }
+
+    if(!changed){
+        break;
     }
 }
 
