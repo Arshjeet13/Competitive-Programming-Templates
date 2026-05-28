@@ -1,6 +1,8 @@
 using u64 = uint64_t;
 using u128 = __uint128_t;
 
+// Checks whether a number n is prime in O(klogn), where k is the number of bases tested
+
 u64 binpower(u64 base, u64 e, u64 mod) {
     u64 result = 1;
     base %= mod;
